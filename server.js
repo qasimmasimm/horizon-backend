@@ -20,11 +20,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:4173",
-      "https://horizon-frontend-five-mu.vercel.app/"
-    ],
+    origin: "https://horizon-frontend-five-mu.vercel.app",
     credentials: true,
   })
 );
