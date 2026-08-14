@@ -23,6 +23,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://localhost:4173",
+      "https://horizon-frontend-five-mu.vercel.app/"
     ],
     credentials: true,
   })
@@ -51,7 +52,7 @@ app.use("/posts", postsrouter);
 // 
 app.get("/health", (req, res) => {
     return res.status(200).json({
-        status: "ok",
+        status: "ok running",
         message: "Backend is running"
     });
 });
