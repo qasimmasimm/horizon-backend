@@ -18,15 +18,15 @@ const messagerouter = require("./routes/contat.routes");
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://horizon-frontend-five-mu.vercel.app",
-];
-
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: [
+      "http://localhost:5173",
+      "https://horizon-frontend-five-mu.vercel.app",
+    ],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
