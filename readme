@@ -1,0 +1,208 @@
+// Login success: 
+
+// if (response.ok) {
+//   document.cookie = `token=${result.token}; path=/`;
+// }
+
+
+
+// Get token
+
+// Cookies don't have getItem(), so:
+
+// const getCookie = (name) => {
+//   const cookies = document.cookie.split("; ");
+
+//   for (const cookie of cookies) {
+//     const [key, value] = cookie.split("=");
+
+//     if (key === name) {
+//       return value;
+//     }
+//   }
+
+//   return null;
+// };
+
+// const token = getCookie("token");
+
+
+
+// Logout:
+
+
+// document.cookie = "token=; max-age=0; path=/";
+
+
+
+
+// Ternary route protection:
+
+// const token = getCookie("token");
+
+// return token
+//   ? <Dashboard />
+//   : <Navigate to="/login" />;
+
+
+
+
+
+
+// const mongoose = require("mongoose");
+
+// const postSchema = new mongoose.Schema(
+//   {
+//     userId: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       ref: "User",
+//       required: true,
+//     },
+
+//     title: {
+//       type: String,
+//       required: true,
+//       trim: true,
+//     },
+
+//     description: {
+//       type: String,
+//       required: true,
+//     },
+
+//     propertyType: {
+//       type: String,
+//       enum: [
+//         "house",
+//         "apartment",
+//         "villa",
+//         "building",
+//         "plot",
+//         "office",
+//         "shop",
+//         "warehouse",
+//       ],
+//       required: true,
+//     },
+
+//     listingType: {
+//       type: String,
+//       enum: ["sale", "rent", "lease"],
+//       required: true,
+//     },
+
+//     price: {
+//       type: Number,
+//       required: true,
+//     },
+
+//     currency: {
+//       type: String,
+//       default: "PKR",
+//     },
+
+//     property: {
+//       bedrooms: Number,
+//       bathrooms: Number,
+
+//       area: Number,
+
+//       areaUnit: {
+//         type: String,
+//         enum: ["sqft", "sqm", "marla", "kanal"],
+//       },
+
+//       floors: Number,
+//       floorNumber: Number,
+
+//       parkingSpaces: Number,
+
+//       furnished: {
+//         type: Boolean,
+//         default: false,
+//       },
+
+//       yearBuilt: Number,
+//     },
+
+//     location: {
+//       country: String,
+//       state: String,
+//       city: String,
+//       area: String,
+//       address: String,
+
+//       latitude: Number,
+//       longitude: Number,
+//     },
+
+//     amenities: [
+//       {
+//         type: String,
+//       },
+//     ],
+
+//     images: [
+//       {
+//         type: String,
+//       },
+//     ],
+
+//     status: {
+//       type: String,
+//       enum: ["draft", "published", "sold", "rented", "inactive"],
+//       default: "draft",
+//     },
+
+//     isFeatured: {
+//       type: Boolean,
+//       default: false,
+//     },
+
+//     views: {
+//       type: Number,
+//       default: 0,
+//     },
+//   },
+//   {
+//     timestamps: true,
+//   }
+// );
+
+// module.exports = mongoose.model("Post", postSchema);
+
+
+
+// if you wanna allow to update some of the fields 
+
+// const allowedFields = [
+//             "title",
+//             "description",
+//             "price",
+//             "bedrooms",
+//             "bathrooms",
+//             "area",
+//             "address",
+//             "city",
+//             "state",
+//             "country",
+//             "areaunit",
+//             "list",
+//             "status",
+//             "proptype",
+//             "currency",
+//         ];
+
+//         const updateData = {};
+
+//         for (const field of allowedFields) {
+//             if (req.body[field] !== undefined) {
+//                 updateData[field] = req.body[field];
+//             }
+//         }
+
+//         if (Object.keys(updateData).length === 0) {
+//             return res.status(400).json({
+//                 message: "No fields provided for update",
+//             });
+//         }
