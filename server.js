@@ -65,7 +65,7 @@ app.use((req, res) => {
 // Server Connection
 
 const PORT = process.env.PORT;
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   try {
     ConnectDB();
     console.log(`Server running at http://localhost:${PORT}`);
