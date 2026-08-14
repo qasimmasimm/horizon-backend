@@ -66,12 +66,19 @@ app.use((req, res) => {
 });
 // Server Connection
 
-const PORT = process.env.PORT;
-app.listen(PORT, "0.0.0.0", () => {
+const PORT = process.env.PORT || 8080;
+
+async function startServer() {
   try {
-    ConnectDB();
-    console.log(`Server running at http://localhost:${PORT}`);
+    await ConnectDB();
+
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT}`);
+    });
   } catch (err) {
-    console.log("failed to run server");
+    console.error("Failed to start server:", err);
+    process.exit(1);
   }
-});
+}
+
+startServer();
